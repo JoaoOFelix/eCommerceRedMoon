@@ -1,0 +1,464 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+:root {
+    --red-color: #F67280;
+    --white-color: #E9E9E9;
+    --gray1-color: #A6AB9F;
+    --salmon-color: #F8B195;
+    --coral-color: #C06C84;
+    --lilas-color: #172c66;
+    --green-color: #00ff6a;
+
+    --redmoon-color: #170420;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    /*
+    background-image: repeating-linear-gradient(180deg, white, var(--black-color));
+    */
+
+    background-color: #333542;
+    color: var(--gray1-color);
+}
+
+::selection {
+    background-color: rgb(177, 177, 177);
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: white; /*Cor de fundo da barra*/
+}
+::-webkit-scrollbar-thumb {
+    background: gray; /*Cor da barra*/
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(119, 38, 0); /*Hover da cor de fundo da barra*/
+}
+
+.active {
+    color: var(--green-color);
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: .35s ease;
+}
+
+a:hover {
+    color: var(--gray1-color);
+    fill: var(--gray1-color);
+}
+
+nav {
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(23, 4, 32, 0.6);
+    border-bottom: rgba(255, 0, 0, 1) 1px solid;
+    box-shadow: 0 10px 19px rgba(255, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+
+}
+
+#login-btn::before {
+    font-family: "Font Awesome 6 Free";
+    content: "\f023";
+    font-weight: 900;
+    margin-right: 8px;
+    transition: .35s;
+}
+
+#login-btn:hover::before{
+    color: var(--gray1-color);
+}
+
+.head-container {
+    
+    height: 70%;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.container-logo {
+    display: flex;
+    gap: 30px;
+}
+
+.logo-img {
+    
+    height: 100%;
+    width: 110px;
+    background-image: url("/img/red_moon_bg_2.png");
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.titulo-nav {
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-nav>h1 {
+
+    display: inline-block;
+
+    color: var(--white-color);
+    font-weight: bolder;
+
+}
+
+.head-links {
+    height: 100%;
+    padding: 0 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+}
+
+.head-links div{
+    display: inline-block;
+    font-size: 1.2em;
+    color: white;
+}
+
+/* ----------------------------DROPLIST------------------ */
+
+.link-store {
+    position: relative;
+}
+
+.head-links>li {
+    font-size: 1.2em;
+    color: white;
+}
+
+.link-store>.droplist-store {
+    position: absolute;
+    display: none;
+    top: 25px;
+    left: -30px;
+    z-index: -999;
+    opacity: 0;
+    transform: translateY(10px);
+    width: fit-content;
+
+    border-top: rgb(43, 255, 0) solid 2px ;
+    box-shadow: 2px 5px 2px rgba(58, 58, 58, 0.4);
+
+    line-height: 40px;
+    backdrop-filter: blur(0px);
+    color: black;
+    background-color: white;
+    border-radius: 0 0 9px 9px;
+    text-align: left;
+    transition: .35s;
+    /* overflow: hidden; */
+}
+
+.link-store a:hover~.droplist-store{
+    display: block;
+    z-index: 3;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.link-store:hover .droplist-store{
+    display: block;
+    z-index: 3;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.droplist-store>li {
+    text-align: left;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--gray1-color);
+    padding: 10px;
+    width: 150px;
+    transition: .35s;
+    border-radius: 0px 0px 8px 8px;
+    transition: .35s;
+}
+
+.droplist-store>li:nth-child(1){
+    border-radius: 0;
+}
+
+.droplist-store>li:hover {
+    background-color: var(--redmoon-color); 
+}
+
+.droplist-store>li:hover a, .droplist-store>li:hover::after {
+    color: white;
+    fill: white;
+    cursor: pointer;
+}
+
+.droplist-store>li>a {
+    text-align: left;
+    text-transform: uppercase;
+    color: black;
+}
+
+.droplist-store>li::after {
+    content: "\f0da";
+    float: right;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.droplist-store>li>a:hover {
+    color: white;
+}
+
+/* --------------------HEADER------------- */
+
+header {
+
+    background-color: var(--lilas-color);
+    color: white;
+
+    width: 100%;
+    height: 4vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+header>div {
+    height: 70%;
+    
+    width: 85%;
+}
+
+/* -----------------CONTEUDO------------------- */
+
+/*---------banner--------*/
+#banner {
+    width: 100%;
+    height: 700px;
+    border-bottom: 2px solid rgb(112, 0, 0);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#banner>div {
+    background-image: url(/img/redmoon.png);
+    background-attachment: fixed;
+    background-position: center;
+    filter: blur(0) brightness(65%);
+    width: 100%;
+    
+    
+    height: 100%;
+    position: absolute;
+    z-index: -9;
+}
+
+#banner>h1 {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    font-size: 4em;
+    border-radius: 5px;
+}
+
+/* -------form------------ */
+
+main {
+    width: 100%;
+    margin: 200px 0;
+
+    height: fit-content;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#formulario {
+    width: 50%;
+    height: 100%;
+    border: 2px solid white;
+}
+
+form {
+    height: 100%;
+}
+
+form>div {
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    margin: 40px;
+}
+
+form>div>label {
+    color: white;
+}
+
+form>div input::selection {
+    background-color: black;
+    color: white;
+}
+
+form>div>input {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    transition: .35s;
+}
+
+form input:focus {
+    outline: 1px var(--green-color) solid;
+    background-color: #c7c7c7;
+}
+
+form #btn-enviar {
+    background-color: #00ff6a00;
+    border: 1px solid white;
+    font-size: 1.1em;
+    color: white;
+    padding: 15px;
+    transition: .2s;
+}
+
+form #btn-enviar:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.descricao-form {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    margin: 0 auto;
+    width: 700px;
+}
+
+.descricao-form p {
+    font-size: 0.6em;
+}
+
+
+
+
+
+
+
+/*-------footer-------*/
+
+#rodape {
+
+    width: 100%;
+
+    background-color: var(--redmoon-color);
+    background-image: url(/img/red_moon_bg.png);
+    
+    background-repeat: no-repeat;
+
+    /* background-position: -900px; */
+    background-position: center;
+    background-size: 80%;
+
+    color: white;
+    
+    padding: 30px;
+    border-top: black solid 2px;
+
+}
+
+#rodape>ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    list-style: none;
+    width: 80%;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+
+}
+
+#rodape>ul>li {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+#rodape>ul>li>ul {
+    border: white solid 2px;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-weight: 300;
+
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 40px;
+
+    backdrop-filter: blur(40px);
+    max-width: 500px;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+#footer-info>p {
+    font-size: 0.9em;
+    text-transform: capitalize;
+    line-height: 30px;
+}
+
+#rodape a:hover {
+    color: var(--green-color) !important;
+}
+
+.direitos-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-style: italic;
+    opacity: .4;
+}
